@@ -63,6 +63,16 @@ output "private_subnet_id" {
 }
 
 
+resource "aws_s3_bucket" "my_bucket" {
+  bucket        = "my-unique-bucket-name-12345"
+  acl           = "private" # Options: private, public-read, etc.
+  force_destroy = true       # Set to true to delete all objects when destroying the bucket
+  tags = {
+    Name        = "My S3 Bucket"
+    Environment = "Dev"
+  }
+}
+
 
 
 
